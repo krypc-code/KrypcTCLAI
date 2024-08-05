@@ -23,7 +23,7 @@ This FastAPI application allows users to upload PDF files. It validates the file
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/fastapi-file-upload.git
+git clone [https://github.com/krypc-code/KrypcTCLAI](https://github.com/krypc-code/KrypcTCLAI.git)
 cd fastapi-file-upload
 ```
 
@@ -44,7 +44,11 @@ pip install -r requirements.txt
 
 The logging configuration is set up in the application code. If you need custom logging configuration, modify the `logging.basicConfig` parameters in `app.py`.
 
-### 5. Run the Application Locally
+### 5. Set the secrets in .env file
+
+Refer to my copy of .env.
+
+### 6. Run the Application Locally
 
 ```bash
 uvicorn app:app --reload
