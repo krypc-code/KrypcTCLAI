@@ -23,7 +23,7 @@ This FastAPI application allows users to upload PDF files. It validates the file
 ### 1. Clone the Repository
 
 ```bash
-git clone [https://github.com/krypc-code/KrypcTCLAI](https://github.com/krypc-code/KrypcTCLAI.git)
+git clone https://github.com/krypc-code/KrypcTCLAI.git
 cd fastapi-file-upload
 ```
 
