@@ -7,8 +7,8 @@ import os
 from openai import OpenAI
 from dotenv import load_dotenv
 
-MD_OUTPUTFILE_STORAGE_DIRECTORY = "./generated_files/markdowns"
-JSON_OUTPUTFILE_STORAGE_DIRECTORY = "./generated_files"
+MD_OUTPUTFILE_STORAGE_DIRECTORY = "generated_files\markdowns"
+JSON_OUTPUTFILE_STORAGE_DIRECTORY = "generated_files"
 
 # Secrets
 load_dotenv()
@@ -44,7 +44,7 @@ def extract_and_transform_from_pdf_for_llm(payload):
     # Write to JSON
     # Define the path to save the JSON file with a unique timestamp
     timestamp = datetime.utcnow().strftime("%Y%m%d%H%M%S%f")
-    json_filename = f"{payload.filename.replace('.pdf','')}_{timestamp}.json"
+    json_filename = f"{payload['filename'].replace('.pdf','')}_{timestamp}.json"
     json_filepath = os.path.join(JSON_OUTPUTFILE_STORAGE_DIRECTORY, json_filename)
 
     # Write the JSON response to the file

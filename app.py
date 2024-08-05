@@ -9,8 +9,8 @@ from Utils.fileUtils import extract_and_transform_from_pdf_for_llm
 
 # Constants
 MAX_FILE_SIZE = 10 * 1024 * 1024  # 10MB
-INPUTFILE_STORAGE_DIRECTORY = "./uploaded_files"
-OUTPUTFILE_STORAGE_DIRECTORY = "./generated_files"
+INPUTFILE_STORAGE_DIRECTORY = "uploaded_files"
+OUTPUTFILE_STORAGE_DIRECTORY = "generated_files"
 
 # Ensure the directory exists
 os.makedirs(INPUTFILE_STORAGE_DIRECTORY, exist_ok=True)
@@ -32,14 +32,11 @@ async def pdfScanner(file: UploadFile = File(...)):
     if file.content_type != 'application/pdf':
         logger.error(f"Invalid file type: {file.content_type} for file: {file.filename}")
         raise HTTPException(status_code=400, detail="Invalid file type. Only PDF files are allowed.")
-    
+
     # Limit file size
     if(len(content)>MAX_FILE_SIZE):
         logger.error(f"File size exceeds the 10MB limit: {file.filename} ({len(content)} bytes)")
         raise HTTPException(status_code=413, detail="File size exceeds the 10MB limit")
-    
-    # Read the file content and check the size
-    content = await file.read()
 
     # Save the uploaded file
     timestamp = datetime.utcnow().strftime("%Y%m%d%H%M%S%f")
